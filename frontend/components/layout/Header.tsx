@@ -1,23 +1,13 @@
 "use client";
 
-import React from "react";
+import logo from "../../assets/logo1.png";
 
 const Header = () => {
   return (
     <div className="nav">
       <div className="nav-logo">
-        <div className="nav-logo-icon">
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="#1A2B30"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-            <circle cx="12" cy="12" r="3" />
-          </svg>
+        <div className="w-15 bg-white rounded-full h-15 flex items-center justify-center">
+          <img src={logo.src} alt="Bagerhat Eye Hospital Logo" />
         </div>
         <div className="nav-logo-text">
           <div className="en">Bagerhat Eye Hospital</div>
