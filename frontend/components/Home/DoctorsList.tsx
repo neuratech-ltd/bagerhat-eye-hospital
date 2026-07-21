@@ -1,169 +1,158 @@
-const doctors = [
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+import { Eye } from "lucide-react";
+import Autoplay from "embla-carousel-autoplay";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+  type CarouselApi,
+} from "@/components/ui/carousel";
+import { Card, CardContent } from "@/components/ui/card";
+
+const DOCTORS = [
   {
+    id: 1,
     name: "ডা. মোহাম্মদ রফিকুল ইসলাম",
-    degree: "FCPS (Ophthalmology) • MS (Eye)",
+    qualification: "FCPS (Ophthalmology) • MS (Eye)",
     specialty: "সিনিয়র চক্ষু বিশেষজ্ঞ ও সার্জন",
-    image: "https://i.pravatar.cc/300?img=12",
   },
   {
-    name: "ডা. নাজমুন নাহার",
-    degree: "MBBS • DO (Ophthalmology)",
+    id: 2,
+    name: "ডা. মোহাম্মদ রাশেদুল ইসলাম",
+    qualification: "MBBS • DO (Ophthalmology)",
+
     specialty: "শিশু চক্ষু রোগ বিশেষজ্ঞ",
-    image: "https://i.pravatar.cc/300?img=32",
   },
   {
+    id: 3,
     name: "ডা. করিম উদ্দিন আহমেদ",
-    degree: "MBBS • MS (Retina)",
+    qualification: "MBBS • MS (Retina)",
     specialty: "রেটিনা ও গ্লুকোমা বিশেষজ্ঞ",
-    image: "https://i.pravatar.cc/300?img=13",
   },
   {
+    id: 4,
     name: "ডা. সালমা বেগম",
-    degree: "MBBS • FCPS (Part II)",
-    specialty: "ক্যাটার‍্যাক্ট ও কর্নিয়া বিশেষজ্ঞ",
-    image: "https://i.pravatar.cc/300?img=44",
+    qualification: "MBBS • FCPS (Part II)",
+    specialty: "ক্যাটারাক্ট ও কর্নিয়া বিশেষজ্ঞ",
+  },
+  {
+    id: 5,
+    name: "ডা. সালমা বেগম",
+    qualification: "MBBS • FCPS (Part II)",
+    specialty: "ক্যাটারাক্ট ও কর্নিয়া বিশেষজ্ঞ",
+  },
+  {
+    id: 6,
+    name: "ডা. সালমা বেগম",
+    qualification: "MBBS • FCPS (Part II)",
+    specialty: "ক্যাটারাক্ট ও কর্নিয়া বিশেষজ্ঞ",
+  },
+  {
+    id: 7,
+    name: "ডা. সালমা বেগম",
+    qualification: "MBBS • FCPS (Part II)",
+    specialty: "ক্যাটারাক্ট ও কর্নিয়া বিশেষজ্ঞ",
   },
 ];
 
-const DoctorsList = () => {
+/** Swap this for a real next/image of each doctor. */
+function DoctorPhoto() {
   return (
-    <section className="doctors" id="doctors">
-      <div className="doctors-header fade-in">
-        <div className="section-label">আমাদের চিকিৎসক দল</div>
-        <h2 className="section-title">
+    <div className="flex aspect-[4/5] w-full flex-col items-center justify-center gap-2 bg-gradient-to-br from-[#0B4F4C]/15 to-[#0B4F4C]/5">
+      <Eye className="h-9 w-9 opacity-30" strokeWidth={1.5} />
+      <span className="font-['Hind_Siliguri'] text-xs opacity-40">
+        ডাক্তারের ছবি
+      </span>
+    </div>
+  );
+}
+
+export default function DoctorsSection() {
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+  const [count, setCount] = useState(0);
+
+  const autoplay = useRef(
+    Autoplay({ delay: 2000, stopOnInteraction: true, stopOnMouseEnter: true }),
+  );
+
+  useEffect(() => {
+    if (!api) return;
+
+    setCount(api.scrollSnapList().length);
+    setCurrent(api.selectedScrollSnap());
+
+    const onSelect = () => setCurrent(api.selectedScrollSnap());
+    api.on("select", onSelect);
+    return () => {
+      api.off("select", onSelect);
+    };
+  }, [api]);
+
+  return (
+    <section className="bg-white px-5 py-16 sm:px-6 lg:px-8">
+      <div className="services-header fade-in">
+        <div className="section-label"> আমাদের চিকিৎসক দল</div>
+        <h2 className="font-['Hind_Siliguri'] text-5xl font-bold leading-snug text-[#0A2540] sm:text-4xl">
           অভিজ্ঞ বিশেষজ্ঞদের হাতে
-          <br />
-          আপনার চোখ
+          <br className="hidden sm:block" /> আপনার চোখ
         </h2>
       </div>
-      <div className="doctors-grid">
-        {doctors.map((doctor, index) => (
-          <div className="doctor-card fade-in" key={index}>
-            <div
-              className="doctor-avatar"
-              style={{
-                backgroundImage: `url(${doctor.image})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            >
-              {/* <div className="doctor-avatar-initial">ম</div> */}
-              {/* <div className="doctor-avatar-icon">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                  <circle cx="12" cy="7" r="4" />
-                </svg>
-                {doctor.image ? (
-                  <img src={doctor.image} alt={doctor.name} />
-                ) : (
-                  <div className="doctor-avatar-initial">
-                    {doctor.name.charAt(0)}
-                  </div>
-                )}
-              </div> */}
-            </div>
-            <div className="doctor-info">
-              <h3>{doctor.name}</h3>
-              <div className="degree">{doctor.degree}</div>
-              <div className="specialty">{doctor.specialty}</div>
-            </div>
-          </div>
-        ))}
 
-        {/* <div className="doctor-card fade-in">
-          <div
-            className="doctor-avatar"
-            style={{
-              background: "linear-gradient(135deg, #00897B 0%, #26A69A 100%)",
-            }}
-          >
-            <div className="doctor-avatar-initial">ন</div>
-            <div className="doctor-avatar-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+      <div className="mx-auto max-w-6xl">
+        <Carousel
+          setApi={setApi}
+          opts={{ align: "center", loop: true }}
+          plugins={[autoplay.current]}
+        >
+          <CarouselContent className="-ml-4 sm:-ml-6">
+            {DOCTORS.map((doc) => (
+              <CarouselItem
+                key={doc.id}
+                className="basis-[85%] pl-4 sm:basis-1/2 sm:pl-6 lg:basis-1/3 xl:basis-1/4"
               >
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                <circle cx="12" cy="7" r="4" />
-              </svg>
+                <Card className="h-full overflow-hidden rounded-2xl border-[#0A2540]/10 pt-0 shadow-sm transition-shadow hover:shadow-md">
+                  <DoctorPhoto />
+                  <CardContent className="p-5">
+                    <div className="font-['Hind_Siliguri'] text-base font-bold text-[#0A2540]">
+                      {doc.name}
+                    </div>
+                    <div className="mt-1 text-sm font-medium text-[#0B4F4C]">
+                      {doc.qualification}
+                    </div>
+                    <div className="mt-1.5 text-xs text-slate-500">
+                      {doc.specialty}
+                    </div>
+                  </CardContent>
+                </Card>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+
+          <div className="mt-8 flex w-full flex-wrap items-center justify-center gap-4 sm:justify-between">
+            <div className="flex gap-2">
+              {Array.from({ length: count }).map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => api?.scrollTo(i)}
+                  aria-label={`Go to slide ${i + 1}`}
+                  className={`h-1.5 rounded-full transition-all ${
+                    i === current ? "w-6 bg-[#0B4F4C]" : "w-1.5 bg-[#0B4F4C]/25"
+                  }`}
+                />
+              ))}
+            </div>
+            <div className="flex gap-3">
+              <CarouselPrevious className="static translate-y-0 border-[#0A2540]/15 text-[#0A2540] hover:bg-[#0A2540]/5" />
+              <CarouselNext className="static translate-y-0 border-[#0A2540]/15 text-[#0A2540] hover:bg-[#0A2540]/5" />
             </div>
           </div>
-          <div className="doctor-info">
-            <h3>ডা. নাজমুন নাহার</h3>
-            <div className="degree">MBBS • DO (Ophthalmology)</div>
-            <div className="specialty">শিশু চক্ষু রোগ বিশেষজ্ঞ</div>
-          </div>
-        </div>
-        <div className="doctor-card fade-in">
-          <div
-            className="doctor-avatar"
-            style={{
-              background: "linear-gradient(135deg, #1565C0 0%, #42A5F5 100%)",
-            }}
-          >
-            <div className="doctor-avatar-initial">ক</div>
-            <div className="doctor-avatar-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                <circle cx="12" cy="7" r="4" />
-              </svg>
-            </div>
-          </div>
-          <div className="doctor-info">
-            <h3>ডা. করিম উদ্দিন আহমেদ</h3>
-            <div className="degree">MBBS • MS (Retina)</div>
-            <div className="specialty">রেটিনা ও গ্লুকোমা বিশেষজ্ঞ</div>
-          </div>
-        </div>
-        <div className="doctor-card fade-in">
-          <div
-            className="doctor-avatar"
-            style={{
-              background: "linear-gradient(135deg, #00695C 0%, #004D40 100%)",
-            }}
-          >
-            <div className="doctor-avatar-initial">স</div>
-            <div className="doctor-avatar-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                <circle cx="12" cy="7" r="4" />
-              </svg>
-            </div>
-          </div>
-          <div className="doctor-info">
-            <h3>ডা. সালমা বেগম</h3>
-            <div className="degree">MBBS • FCPS (Part II)</div>
-            <div className="specialty">ক্যাটার‍্যাক্ট ও কর্নিয়া বিশেষজ্ঞ</div>
-          </div>
-        </div> */}
+        </Carousel>
       </div>
     </section>
   );
-};
-
-export default DoctorsList;
+}

@@ -1,79 +1,94 @@
 import React from "react";
+import {
+  Eye,
+  Search,
+  ScanEye,
+  ShieldCheck,
+  Droplets,
+  HeartPulse,
+  Scissors,
+  Sparkles,
+  CircleDot,
+  Syringe,
+  Activity,
+} from "lucide-react";
 
-const ServicesData = [
+interface Service {
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+  free: boolean;
+}
+
+const ServicesData: Service[] = [
   {
-    title: "বিনামূল্যে চক্ষু পরীক্ষা",
+    title: "চক্ষু পরীক্ষা",
     description:
-      "সম্পূর্ণ বিনামূল্যে দৃষ্টিশক্তি পরীক্ষা, চাপ পরীক্ষা ও সামগ্রিক চোখের স্বাস্থ্য মূল্যায়ন।",
-    icon: (
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <circle cx="11" cy="11" r="8" />
-        <line x1="21" y1="21" x2="16.65" y2="16.65" />
-      </svg>
-    ),
-    free: true,
+      "দৃষ্টিশক্তি পরীক্ষা, চোখের চাপ (IOP) পরিমাপ, পাওয়ার নির্ণয় এবং চোখের সামগ্রিক স্বাস্থ্য পরীক্ষা।",
+    icon: <Eye />,
+    free: false,
   },
   {
-    title: "ক্যাটার‍্যাক্ট সার্জারি",
+    title: "ছানি অপারেশন",
     description:
-      "অত্যাধুনিক ফ্যাকো সার্জারি পদ্ধতিতে ছানি অপারেশন। গরিব রোগীদের জন্য বিনামূল্যে।",
-    icon: (
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-      </svg>
-    ),
+      "আধুনিক ফ্যাকো সার্জারি পদ্ধতিতে ছানি অপারেশন এবং উন্নত মানের লেন্স প্রতিস্থাপনের মাধ্যমে দৃষ্টিশক্তি পুনরুদ্ধার।",
+    icon: <Scissors />,
     free: true,
   },
   {
     title: "গ্লুকোমা চিকিৎসা",
     description:
-      "গ্লুকোমার প্রাথমিক শনাক্তকরণ ও দীর্ঘমেয়াদী ব্যবস্থাপনায় বিশেষজ্ঞ সেবা।",
-    icon: (
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <circle cx="12" cy="12" r="10" />
-        <circle cx="12" cy="12" r="6" />
-        <circle cx="12" cy="12" r="2" />
-      </svg>
-    ),
+      "গ্লুকোমা রোগের প্রাথমিক শনাক্তকরণ, চোখের চাপ নিয়ন্ত্রণ ও প্রয়োজনীয় চিকিৎসার মাধ্যমে দৃষ্টি সুরক্ষা।",
+    icon: <ScanEye />,
     free: false,
   },
   {
-    title: "ডায়াবেটিক রেটিনোপ্যাথি",
+    title: "নেত্রনালী DCR অপারেশন",
     description:
-      "ডায়াবেটিস জনিত চোখের জটিলতার স্ক্রিনিং, লেজার চিকিৎসা ও দীর্ঘমেয়াদী ফলোআপ।",
-    icon: (
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-      </svg>
-    ),
+      "চোখ দিয়ে পানি পড়ার সমস্যা দূর করতে বন্ধ হয়ে যাওয়া অশ্রুনালী DCR সার্জারির মাধ্যমে পুনঃস্থাপন।",
+    icon: <Droplets />,
+    free: false,
+  },
+  {
+    title: "DCT অপারেশন",
+    description:
+      "অশ্রুনালীর সমস্যার জন্য DCT অপারেশনের মাধ্যমে কার্যকর চিকিৎসা ও দীর্ঘমেয়াদী সমাধান প্রদান।",
+    icon: <Activity />,
+    free: false,
+  },
+  {
+    title: "টেরিজিয়াম অপারেশন",
+    description:
+      "চোখের সাদা অংশ থেকে কর্নিয়ার দিকে বেড়ে ওঠা টেরিজিয়াম আধুনিক সার্জারির মাধ্যমে অপসারণ।",
+    icon: <Eye />,
+    free: false,
+  },
+  {
+    title: "গ্রাফটিং সহ অপারেশন",
+    description:
+      "কর্নিয়া ও চোখের বিভিন্ন সমস্যায় প্রয়োজন অনুযায়ী গ্রাফটিংসহ উন্নত সার্জিক্যাল চিকিৎসা প্রদান।",
+    icon: <ShieldCheck />,
+    free: false,
+  },
+  {
+    title: "কালাজিয়ান অপারেশন",
+    description:
+      "চোখের পাতার ভেতরে হওয়া কালাজিয়ান নিরাপদ ছোট সার্জারির মাধ্যমে অপসারণ।",
+    icon: <CircleDot />,
+    free: false,
+  },
+  {
+    title: "সিস্ট অপারেশন",
+    description:
+      "চোখের পাতা বা আশেপাশে তৈরি হওয়া সিস্ট বিশেষজ্ঞ চিকিৎসকের মাধ্যমে অপসারণ।",
+    icon: <Syringe />,
+    free: false,
+  },
+  {
+    title: "ইমপ্লান্টসহ ইনুক্লেশন",
+    description:
+      "চোখের অনিরাময়যোগ্য রোগ বা গুরুতর আঘাতের ক্ষেত্রে ইনুক্লেশন সার্জারির মাধ্যমে চোখ অপসারণ এবং কক্ষপথে ইমপ্লান্ট স্থাপন করা হয়",
+    icon: <HeartPulse />,
     free: false,
   },
 ];
