@@ -25,6 +25,11 @@ const Header = () => {
   const [open, setOpen] = useState(false);
   const router = useRouter();
 
+  const handleButtonClick = () => {
+    router.push("/appointment-details");
+    setOpen(false); // Close the sheet after navigation
+  };
+
   return (
     <header className="sticky top-0 z-50 border-b border-[#0A2540]/5 bg-gradient-to-r from-[#DCE9F9] via-[#E9F1FB] to-[#F3F7FD]">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
@@ -107,7 +112,7 @@ const Header = () => {
 
             <div className="mt-6 p-4 border-t border-[#0A2540]/10 pt-6">
               <Button
-                onClick={() => router.push("/appointment-details")}
+                onClick={() => handleButtonClick()}
                 className="w-full gap-2 rounded-full bg-[#0B2A4A] text-sm font-semibold text-white hover:bg-[#0A2540]"
               >
                 <Phone className="h-4 w-4" />
