@@ -29,7 +29,7 @@ const Header = () => {
     <header className="sticky top-0 z-50 border-b border-[#0A2540]/5 bg-gradient-to-r from-[#DCE9F9] via-[#E9F1FB] to-[#F3F7FD]">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
         <a href="/" className="flex min-w-0 shrink-0 items-center gap-2.5">
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center sm:h-12 sm:w-12">
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center sm:h-14 sm:w-14">
             <img
               src={logo.src}
               alt="Bagerhat Eye Hospital Logo"
@@ -60,7 +60,7 @@ const Header = () => {
 
         <Button
           onClick={() => {
-            router.push("/Appointment");
+            router.push("/appointment");
           }}
           className="hidden rounded-full bg-[#0B2A4A] px-5 text-sm font-semibold text-white hover:bg-[#0A2540] md:inline-flex"
         >
@@ -107,7 +107,7 @@ const Header = () => {
 
             <div className="mt-6 p-4 border-t border-[#0A2540]/10 pt-6">
               <Button
-                onClick={() => router.push("/Appointment")}
+                onClick={() => router.push("/appointment")}
                 className="w-full gap-2 rounded-full bg-[#0B2A4A] text-sm font-semibold text-white hover:bg-[#0A2540]"
               >
                 <Phone className="h-4 w-4" />

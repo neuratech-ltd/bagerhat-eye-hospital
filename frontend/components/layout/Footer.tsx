@@ -1,4 +1,5 @@
 import React from "react";
+import logo from "@/assets/logo-icon.png";
 
 const Footer = () => {
   return (
@@ -7,17 +8,11 @@ const Footer = () => {
         <div className="footer-brand">
           <div className="footer-logo">
             <div className="footer-logo-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#1A2B30"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                <circle cx="12" cy="12" r="3" />
-              </svg>
+              <img
+                src={logo.src}
+                alt="Bagerhat Eye Hospital Logo"
+                className="rounded-full "
+              />
             </div>
             <div className="footer-logo-text">Bagerhat Eye Hospital</div>
           </div>
@@ -36,15 +31,14 @@ const Footer = () => {
         </div>
         <div className="footer-col">
           <h4>হাসপাতাল</h4>
-          <a href="#">আমাদের সম্পর্কে</a>
-          <a href="#">চিকিৎসক দল</a>
-          <a href="#">বিনামূল্যে শিবির</a>
-          <a href="#">যোগাযোগ</a>
-          <a href="#">অ্যাপয়েন্টমেন্ট</a>
+          <a href="/#services">আমাদের সেবা</a>
+          <a href="/#doctors">চিকিৎসক দল</a>
+          <a href="/contact">যোগাযোগ</a>
+          <a href="/appointment">অ্যাপয়েন্টমেন্ট</a>
         </div>
       </div>
       <div className="footer-bottom">
-        <span>© 2026 বাগেরহাট আই হাসপাতাল। সর্বস্বত্ব সংরক্ষিত।</span>
+        <span>Bagerhat Eye Hospital। Copyright © 2026.</span>
         <span>
           Made with <span className="heart">♥</span> by{" "}
           <a
