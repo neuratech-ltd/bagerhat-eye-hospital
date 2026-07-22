@@ -9,14 +9,10 @@
   --dark: #0d1f3c;
   --white: #ffffff;
   --border: rgba(11, 61, 145, 0.12);
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  --our-secondary: #4b9cd3;
+  --our-bg: #e1f5fe;
+  --our-text: #1e293b;
+  --our-primary: #0f52ba;
 }
 
 html {
@@ -29,197 +25,6 @@ body {
   color: var(--dark);
   line-height: 1.65;
   overflow-x: hidden;
-}
-
-/* ── NAV ── */
-.nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  background: rgba(11, 61, 145, 0.97);
-  backdrop-filter: blur(8px);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 5%;
-  height: 68px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.nav-logo-icon {
-  width: 38px;
-  height: 38px;
-  background: var(--gold);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-.nav-logo-icon svg {
-  width: 20px;
-  height: 20px;
-}
-.nav-logo-text {
-  color: var(--white);
-}
-.nav-logo-text .en {
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-}
-.nav-logo-text .bn {
-  font-size: 11px;
-  font-family: "Hind Siliguri", sans-serif;
-  color: rgba(255, 255, 255, 0.65);
-}
-
-.nav-links {
-  display: flex;
-  gap: 32px;
-}
-.nav-links a {
-  color: rgba(255, 255, 255, 0.82);
-  text-decoration: none;
-  font-size: 13.5px;
-  font-weight: 400;
-  letter-spacing: 0.02em;
-  transition: color 0.2s;
-}
-.nav-links a:hover {
-  color: var(--gold);
-}
-
-.nav-cta {
-  background: var(--gold);
-  color: var(--dark) !important;
-  padding: 8px 20px;
-  border-radius: 40px;
-  font-weight: 600 !important;
-  font-size: 13px !important;
-  transition: background 0.2s !important;
-}
-.nav-cta:hover {
-  background: var(--gold-light) !important;
-  color: var(--dark) !important;
-}
-
-/* ── HERO ── */
-.hero {
-  min-height: 100vh;
-  background: linear-gradient(160deg, #061a3a 0%, #0b3d91 45%, #1565c0 100%);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  padding: 100px 8% 80px;
-  gap: 60px;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Ambient background rings */
-.hero::before {
-  content: "";
-  position: absolute;
-  top: -120px;
-  right: -120px;
-  width: 600px;
-  height: 600px;
-  border-radius: 50%;
-  border: 1px solid rgba(0, 137, 123, 0.12);
-  pointer-events: none;
-}
-.hero::after {
-  content: "";
-  position: absolute;
-  bottom: -160px;
-  left: -80px;
-  width: 500px;
-  height: 500px;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.04);
-  pointer-events: none;
-}
-
-.hero-text {
-  position: relative;
-  z-index: 2;
-}
-
-.hero-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(0, 137, 123, 0.15);
-  border: 1px solid rgba(0, 137, 123, 0.35);
-  color: var(--gold);
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 5px 14px;
-  border-radius: 40px;
-  margin-bottom: 24px;
-}
-.hero-eyebrow span {
-  width: 6px;
-  height: 6px;
-  background: var(--gold);
-  border-radius: 50%;
-  display: inline-block;
-  animation: blink 2s ease-in-out infinite;
-}
-@keyframes blink {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.4;
-  }
-}
-
-.hero-title {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(36px, 5vw, 58px);
-  font-weight: 700;
-  color: var(--white);
-  line-height: 1.15;
-  margin-bottom: 10px;
-}
-.hero-title .accent {
-  color: var(--gold);
-}
-
-.hero-subtitle {
-  font-family: "Hind Siliguri", sans-serif;
-  font-size: clamp(18px, 2.2vw, 24px);
-  color: rgba(255, 255, 255, 0.75);
-  font-weight: 300;
-  margin-bottom: 28px;
-  line-height: 1.4;
-}
-
-.hero-tagline {
-  font-size: 15px;
-  color: rgba(255, 255, 255, 0.6);
-  line-height: 1.7;
-  max-width: 460px;
-  margin-bottom: 40px;
-  font-family: "Hind Siliguri", sans-serif;
-}
-
-.hero-buttons {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
 }
 
 .btn-primary {
@@ -257,22 +62,12 @@ body {
   color: var(--gold);
 }
 
-/* ── HERO EYE VISUAL (Signature Element) ── */
-.hero-visual {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .eye-container {
   position: relative;
   width: clamp(280px, 35vw, 440px);
   height: clamp(280px, 35vw, 440px);
 }
 
-/* Outer glow ring */
 .eye-ring-outer {
   position: absolute;
   inset: 0;
@@ -371,7 +166,6 @@ body {
   }
 }
 
-/* ── SECTION BASE ── */
 section {
   padding: 88px 8%;
 }
@@ -385,7 +179,7 @@ section {
   margin-bottom: 12px;
 }
 .section-title {
-  font-family: "Playfair Display", serif;
+  font-family: "Hind Siliguri", sans-serif;
   font-size: clamp(28px, 3.5vw, 42px);
   font-weight: 700;
   color: var(--dark);
@@ -561,9 +355,8 @@ section {
   border-radius: 20px;
 }
 
-/* ── FREE CAMP BANNER ── */
 .camp-banner {
-  background: linear-gradient(120deg, #061a3a 0%, #0b3d91 50%, #00897b 100%);
+  background: linear-gradient(120deg, #061a3a 0%, #000000 50%, #00897b 100%);
   padding: 72px 8%;
   display: flex;
   align-items: center;
@@ -879,8 +672,7 @@ footer {
   gap: 60px;
   margin-bottom: 48px;
 }
-.footer-brand {
-}
+
 .footer-logo {
   display: flex;
   align-items: center;
@@ -888,9 +680,9 @@ footer {
   margin-bottom: 16px;
 }
 .footer-logo-icon {
-  width: 36px;
-  height: 36px;
-  background: var(--gold);
+  width: 40px;
+  height: 25px;
+  background: #ffffff;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -947,7 +739,6 @@ footer {
   color: var(--gold);
 }
 
-/* ── MOBILE ── */
 @media (max-width: 768px) {
   .hero {
     grid-template-columns: 1fr;
@@ -989,4 +780,35 @@ footer {
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+.swiper {
+  width: 500px;
+  height: 400px;
+  padding: 50px;
+  transform-style: preserve-3d;
+  border: 3px solid rgba(10, 79, 94, 0.07);
+  border-radius: 20px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 500px;
+  height: 400px;
+}
+
+@media (max-width: 1300px) {
+  .swiper,
+  .swiper-slide {
+    width: 450px;
+  }
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
 }
