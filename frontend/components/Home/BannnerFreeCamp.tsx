@@ -1,8 +1,13 @@
+"use client";
+
 import React from "react";
 import { Button } from "../ui/button";
 import HeroSlider from "./HeroSlider";
+import { useRouter } from "next/navigation";
 
 const BannnerFreeCamp = () => {
+  const router = useRouter();
+
   return (
     <div className="camp-banner fade-in">
       <div className="camp-text">
@@ -14,6 +19,9 @@ const BannnerFreeCamp = () => {
           সেবা দেওয়া হয় একদম বিনামূল্যে।
         </p>
         <Button
+          onClick={() => {
+            router.push("/contact");
+          }}
           variant="outline"
           className="rounded-full bg-white border border-gray-300 hover:bg-black hover:text-white px-6 py-4 text-sm font-semibold "
         >
