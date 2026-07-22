@@ -798,6 +798,13 @@ footer {
   height: 400px;
 }
 
+@media (max-width: 1300px) {
+  .swiper,
+  .swiper-slide {
+    width: 450px;
+  }
+}
+
 .swiper-slide img {
   display: block;
   width: 100%;

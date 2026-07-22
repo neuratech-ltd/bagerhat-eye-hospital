@@ -15,7 +15,7 @@ const BannnerFreeCamp = () => {
         </p>
         <Button
           variant="outline"
-          className="rounded-full px-6 py-4 text-sm font-semibold "
+          className="rounded-full bg-white border border-gray-300 hover:bg-black hover:text-white px-6 py-4 text-sm font-semibold "
         >
           Contact for Free Camp
         </Button>
