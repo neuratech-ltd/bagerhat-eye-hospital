@@ -37,6 +37,12 @@ const Footer = () => {
               pathname: "/",
               hash: "services",
             }}
+            onClick={() => {
+              const servicesSection = document.getElementById("services");
+              if (servicesSection) {
+                servicesSection.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
           >
             আমাদের সেবা
           </Link>
@@ -44,6 +50,12 @@ const Footer = () => {
             href={{
               pathname: "/",
               hash: "doctors",
+            }}
+            onClick={() => {
+              const doctorsSection = document.getElementById("doctors");
+              if (doctorsSection) {
+                doctorsSection.scrollIntoView({ behavior: "smooth" });
+              }
             }}
           >
             চিকিৎসক দল
