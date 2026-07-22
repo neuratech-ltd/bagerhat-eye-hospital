@@ -24,30 +24,16 @@ const Footer = () => {
         </div>
         <div className="footer-col">
           <h4>সেবা</h4>
-          <Link href="#">চক্ষু পরীক্ষা</Link>
-          <Link href="#">ক্যাটার‍্যাক্ট সার্জারি</Link>
-          <Link href="#">গ্লুকোমা</Link>
-          <Link href="#">রেটিনা সেবা</Link>
-          <Link href="#">শিশু চক্ষু</Link>
+          <a href="#">চক্ষু পরীক্ষা</a>
+          <a href="#">ক্যাটার‍্যাক্ট সার্জারি</a>
+          <a href="#">গ্লুকোমা</a>
+          <a href="#">রেটিনা সেবা</a>
+          <a href="#">শিশু চক্ষু</a>
         </div>
         <div className="footer-col">
           <h4>হাসপাতাল</h4>
-          <Link
-            href={{
-              pathname: "/",
-              hash: "services",
-            }}
-          >
-            আমাদের সেবা
-          </Link>
-          <Link
-            href={{
-              pathname: "/",
-              hash: "doctors",
-            }}
-          >
-            চিকিৎসক দল
-          </Link>
+          <a href="/#services">আমাদের সেবা</a>
+          <a href="/#doctors">চিকিৎসক দল</a>
           <Link href="/contact">যোগাযোগ</Link>
           <Link href="/appointment-details">অ্যাপয়েন্টমেন্ট</Link>
         </div>
