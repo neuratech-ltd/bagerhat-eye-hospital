@@ -90,11 +90,7 @@ export default function AppointmentDetailsSection() {
               {OPERATIONS.map((op, i) => (
                 <TableRow
                   key={op.name}
-                  className={
-                    i % 2 === 1
-                      ? "bg-[#0B4F4C]/[0.03] border-b border-[#0A2540]/10"
-                      : "border-b border-[#0A2540]/10"
-                  }
+                  className={i % 2 === 1 ? "bg-[#0B4F4C]/[0.03]" : undefined}
                 >
                   <TableCell className="text-[14.5px] text-[#0A2540]">
                     {op.name}
