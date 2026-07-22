@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: "export",
-  basePath: "/bagerhat-eye-hospital",
+  // basePath: "/bagerhat-eye-hospital",
   images: {
     unoptimized: true,
     remotePatterns: [

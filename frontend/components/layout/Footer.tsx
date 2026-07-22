@@ -34,7 +34,7 @@ const Footer = () => {
           <a href="/#services">আমাদের সেবা</a>
           <a href="/#doctors">চিকিৎসক দল</a>
           <a href="/contact">যোগাযোগ</a>
-          <a href="/appointment">অ্যাপয়েন্টমেন্ট</a>
+          <a href="/appointment-details">অ্যাপয়েন্টমেন্ট</a>
         </div>
       </div>
       <div className="footer-bottom">

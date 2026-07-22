@@ -60,7 +60,7 @@ const Header = () => {
 
         <Button
           onClick={() => {
-            router.push("/appointment");
+            router.push("/appointment-details");
           }}
           className="hidden rounded-full bg-[#0B2A4A] px-5 text-sm font-semibold text-white hover:bg-[#0A2540] md:inline-flex"
         >
@@ -107,7 +107,7 @@ const Header = () => {
 
             <div className="mt-6 p-4 border-t border-[#0A2540]/10 pt-6">
               <Button
-                onClick={() => router.push("/appointment")}
+                onClick={() => router.push("/appointment-details")}
                 className="w-full gap-2 rounded-full bg-[#0B2A4A] text-sm font-semibold text-white hover:bg-[#0A2540]"
               >
                 <Phone className="h-4 w-4" />
