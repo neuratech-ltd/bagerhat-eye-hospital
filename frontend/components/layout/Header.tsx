@@ -28,7 +28,7 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-50 border-b border-[#0A2540]/5 bg-gradient-to-r from-[#DCE9F9] via-[#E9F1FB] to-[#F3F7FD]">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
-        <a href="/" className="flex min-w-0 shrink-0 items-center gap-2.5">
+        <Link href="/" className="flex min-w-0 shrink-0 items-center gap-2.5">
           <div className="flex h-10 w-10 shrink-0 items-center justify-center sm:h-14 sm:w-14">
             <img
               src={logo.src}
@@ -44,7 +44,7 @@ const Header = () => {
               বাগেরহাট চক্ষু হাসপাতাল
             </div>
           </div>
-        </a>
+        </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
           {NAV_LINKS.map((link) => (
