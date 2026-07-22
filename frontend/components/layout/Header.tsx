@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/sheet";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import link from "next/link";
 
 const NAV_LINKS = [
   { href: "/#services", label: "Services" },
@@ -28,7 +29,7 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-50 border-b border-[#0A2540]/5 bg-gradient-to-r from-[#DCE9F9] via-[#E9F1FB] to-[#F3F7FD]">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
-        <a href="/" className="flex min-w-0 shrink-0 items-center gap-2.5">
+        <Link href="/" className="flex min-w-0 shrink-0 items-center gap-2.5">
           <div className="flex h-10 w-10 shrink-0 items-center justify-center sm:h-14 sm:w-14">
             <img
               src={logo.src}
@@ -44,17 +45,32 @@ const Header = () => {
               বাগেরহাট চক্ষু হাসপাতাল
             </div>
           </div>
-        </a>
+        </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
           {NAV_LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-sm font-medium text-[#0A2540]/80 transition-colors hover:text-[#0B4F4C]"
-            >
-              {link.label}
-            </Link>
+            <>
+              if (link.href.startsWith("#")){" "}
+              {
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="text-sm font-medium text-[#0A2540]/80 transition-colors hover:text-[#0B4F4C]"
+                >
+                  {link.label}
+                </a>
+              }{" "}
+              else{" "}
+              {
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-sm font-medium text-[#0A2540]/80 transition-colors hover:text-[#0B4F4C]"
+                >
+                  {link.label}
+                </Link>
+              }
+            </>
           ))}
         </nav>
 
@@ -94,14 +110,29 @@ const Header = () => {
 
             <nav className="mt-6 flex flex-col gap-1">
               {NAV_LINKS.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="rounded-lg px-3 py-2.5 text-[15px] font-medium text-[#0A2540]/85 transition-colors hover:bg-[#0B4F4C]/5 hover:text-[#0B4F4C]"
-                >
-                  {link.label}
-                </Link>
+                <>
+                  if (link.href.startsWith("#")){" "}
+                  {
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      className="text-sm font-medium text-[#0A2540]/80 transition-colors hover:text-[#0B4F4C]"
+                    >
+                      {link.label}
+                    </a>
+                  }{" "}
+                  else{" "}
+                  {
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      onClick={() => setOpen(false)}
+                      className="rounded-lg px-3 py-2.5 text-[15px] font-medium text-[#0A2540]/85 transition-colors hover:bg-[#0B4F4C]/5 hover:text-[#0B4F4C]"
+                    >
+                      {link.label}
+                    </Link>
+                  }
+                </>
               ))}
             </nav>
 

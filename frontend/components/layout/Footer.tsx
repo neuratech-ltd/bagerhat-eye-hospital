@@ -32,8 +32,22 @@ const Footer = () => {
         </div>
         <div className="footer-col">
           <h4>হাসপাতাল</h4>
-          <a href="/#services">আমাদের সেবা</a>
-          <a href="/#doctors">চিকিৎসক দল</a>
+          <Link
+            href={{
+              pathname: "/",
+              hash: "services",
+            }}
+          >
+            আমাদের সেবা
+          </Link>
+          <Link
+            href={{
+              pathname: "/",
+              hash: "doctors",
+            }}
+          >
+            চিকিৎসক দল
+          </Link>
           <Link href="/contact">যোগাযোগ</Link>
           <Link href="/appointment-details">অ্যাপয়েন্টমেন্ট</Link>
         </div>
