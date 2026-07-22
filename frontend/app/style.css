@@ -179,7 +179,7 @@ section {
   margin-bottom: 12px;
 }
 .section-title {
-  font-family: "Playfair Display", serif;
+  font-family: "Hind Siliguri", sans-serif;
   font-size: clamp(28px, 3.5vw, 42px);
   font-weight: 700;
   color: var(--dark);

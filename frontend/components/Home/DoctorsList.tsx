@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Eye } from "lucide-react";
 import Autoplay from "embla-carousel-autoplay";
 import {
   Carousel,
@@ -13,60 +12,53 @@ import {
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
 
+import doctor1 from "@/assets/images/doctors.jpg";
+
 const DOCTORS = [
   {
     id: 1,
-    name: "ডা. মোহাম্মদ রফিকুল ইসলাম",
-    qualification: "FCPS (Ophthalmology) • MS (Eye)",
-    specialty: "সিনিয়র চক্ষু বিশেষজ্ঞ ও সার্জন",
+    name: "Dr. Mohammed Shahidul Islam",
+    qualification: "MMBS • BCS(Health) • PGT (Ophthalmology)",
+    specialty: " Consultant Ophthalmologist",
+    image: doctor1.src,
+    consutationHours: "Monday & Thursday, 9:00 AM - 2:00 PM",
   },
   {
     id: 2,
-    name: "ডা. মোহাম্মদ রাশেদুল ইসলাম",
-    qualification: "MBBS • DO (Ophthalmology)",
-
-    specialty: "শিশু চক্ষু রোগ বিশেষজ্ঞ",
+    name: "Dr. Md. Mizanur Rahman (Nasim)",
+    qualification: "MBBS • PGT (Ophthalmology)",
+    specialty: "Consultant Eye Surgeon",
+    image: doctor1.src,
+    consutationHours: "Saturday, 3:00 PM - 6:00 PM",
   },
   {
     id: 3,
-    name: "ডা. করিম উদ্দিন আহমেদ",
-    qualification: "MBBS • MS (Retina)",
-    specialty: "রেটিনা ও গ্লুকোমা বিশেষজ্ঞ",
+    name: "Dr. Karim Uddin Ahmed",
+    qualification: "MBBS • BCS (Health) • DO (Ophthalmology)",
+    specialty: "Consultant Ophthalmologist",
+    image: doctor1.src,
+    consutationHours: "Wednesday, 10:00 AM - 2:00 PM",
   },
   {
     id: 4,
-    name: "ডা. সালমা বেগম",
-    qualification: "MBBS • FCPS (Part II)",
-    specialty: "ক্যাটারাক্ট ও কর্নিয়া বিশেষজ্ঞ",
-  },
-  {
-    id: 5,
-    name: "ডা. সালমা বেগম",
-    qualification: "MBBS • FCPS (Part II)",
-    specialty: "ক্যাটারাক্ট ও কর্নিয়া বিশেষজ্ঞ",
-  },
-  {
-    id: 6,
-    name: "ডা. সালমা বেগম",
-    qualification: "MBBS • FCPS (Part II)",
-    specialty: "ক্যাটারাক্ট ও কর্নিয়া বিশেষজ্ঞ",
-  },
-  {
-    id: 7,
-    name: "ডা. সালমা বেগম",
-    qualification: "MBBS • FCPS (Part II)",
-    specialty: "ক্যাটারাক্ট ও কর্নিয়া বিশেষজ্ঞ",
+    name: "Dr. Monowarul Islam",
+    qualification: "MBBS • PGT (Ophthalmology)",
+    specialty: "Consultant Ophthalmologist",
+    image: doctor1.src,
+    consutationHours: "Saturday & Wednesday, 10:00 AM - 2:00 PM",
   },
 ];
 
-/** Swap this for a real next/image of each doctor. */
-function DoctorPhoto() {
+function DoctorPhoto({ image }: { image: string }) {
   return (
     <div className="flex aspect-[4/5] w-full flex-col items-center justify-center gap-2 bg-gradient-to-br from-[#0B4F4C]/15 to-[#0B4F4C]/5">
-      <Eye className="h-9 w-9 opacity-30" strokeWidth={1.5} />
-      <span className="font-['Hind_Siliguri'] text-xs opacity-40">
-        ডাক্তারের ছবি
-      </span>
+      <img
+        src={image}
+        alt={image}
+        width={300}
+        height={300}
+        className="h-full w-full object-cover"
+      />
     </div>
   );
 }
@@ -94,7 +86,7 @@ export default function DoctorsSection() {
   }, [api]);
 
   return (
-    <section className="bg-white px-5 py-16 sm:px-6 lg:px-8">
+    <section id="doctors" className="bg-white px-5 py-16 sm:px-6 lg:px-8">
       <div className="services-header fade-in">
         <div className="section-label"> আমাদের চিকিৎসক দল</div>
         <h2 className="font-['Hind_Siliguri'] text-5xl font-bold leading-snug text-[#0A2540] sm:text-4xl">
@@ -116,7 +108,7 @@ export default function DoctorsSection() {
                 className="basis-[85%] pl-4 sm:basis-1/2 sm:pl-6 lg:basis-1/3 xl:basis-1/4"
               >
                 <Card className="h-full overflow-hidden rounded-2xl border-[#0A2540]/10 pt-0 shadow-sm transition-shadow hover:shadow-md">
-                  <DoctorPhoto />
+                  <DoctorPhoto image={doc.image} />
                   <CardContent className="p-5">
                     <div className="font-['Hind_Siliguri'] text-base font-bold text-[#0A2540]">
                       {doc.name}
@@ -126,6 +118,9 @@ export default function DoctorsSection() {
                     </div>
                     <div className="mt-1.5 text-xs text-slate-500">
                       {doc.specialty}
+                    </div>
+                    <div className="mt-2 text-sm text-slate-600">
+                      {doc.consutationHours}
                     </div>
                   </CardContent>
                 </Card>

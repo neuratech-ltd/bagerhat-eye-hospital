@@ -75,6 +75,12 @@ export default function HeroSection() {
                 Call: +880 01965-051980
               </Button>
               <Button
+                onClick={() => {
+                  const servicesSection = document.getElementById("services");
+                  if (servicesSection) {
+                    servicesSection.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
                 variant="outline"
                 className="h-auto gap-2 rounded-full border-[#0A2540]/20 px-5 py-3 text-[13px] font-semibold text-[#0A2540] hover:bg-[#0A2540]/5 sm:px-6 sm:text-[15px]"
               >
