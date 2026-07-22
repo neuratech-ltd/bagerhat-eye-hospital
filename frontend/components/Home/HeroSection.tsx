@@ -23,8 +23,6 @@ function PhotoPlaceholder({ className = "", label = "রোগীর ছবি" 
     <div
       className={`flex flex-col items-center justify-center gap-2 bg-gradient-to-br from-[#0B4F4C]/20 to-[#0B4F4C]/5 ${className}`}
     >
-      {/* <Eye className="h-8 w-8 opacity-35" strokeWidth={1.5} />
-      <span className="font-['Hind_Siliguri'] text-xs opacity-45">{label}</span> */}
       <img
         src={image1.src}
         alt={label}
