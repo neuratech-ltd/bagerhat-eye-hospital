@@ -32,34 +32,8 @@ const Footer = () => {
         </div>
         <div className="footer-col">
           <h4>হাসপাতাল</h4>
-          <Link
-            href={{
-              pathname: "/",
-              hash: "services",
-            }}
-            onClick={() => {
-              const servicesSection = document.getElementById("services");
-              if (servicesSection) {
-                servicesSection.scrollIntoView({ behavior: "smooth" });
-              }
-            }}
-          >
-            আমাদের সেবা
-          </Link>
-          <Link
-            href={{
-              pathname: "/",
-              hash: "doctors",
-            }}
-            onClick={() => {
-              const doctorsSection = document.getElementById("doctors");
-              if (doctorsSection) {
-                doctorsSection.scrollIntoView({ behavior: "smooth" });
-              }
-            }}
-          >
-            চিকিৎসক দল
-          </Link>
+          <Link href="/#services">আমাদের সেবা</Link>
+          <Link href="/#doctors">চিকিৎসক দল</Link>
           <Link href="/contact">যোগাযোগ</Link>
           <Link href="/appointment-details">অ্যাপয়েন্টমেন্ট</Link>
         </div>
