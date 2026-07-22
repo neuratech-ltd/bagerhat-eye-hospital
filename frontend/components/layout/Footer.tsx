@@ -40,7 +40,7 @@ const Footer = () => {
       <div className="footer-bottom">
         <span>Bagerhat Eye Hospital। Copyright © 2026.</span>
         <span>
-          Made with <span className="heart">♥</span> by{" "}
+          Made with <span className="heart">♥</span> by
           <a
             href="https://www.neuratechltd.com"
             target="_blank"
