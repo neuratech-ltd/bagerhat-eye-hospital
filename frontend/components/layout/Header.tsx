@@ -11,19 +11,37 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 
 const navItems = [
-  { href: "#services", label: "Services" },
-  { href: "#doctors", label: "Doctors" },
-  { href: "#mission", label: "Our Mission" },
+  { href: "/#services", label: "Services" },
+  { href: "/#doctors", label: "Doctors" },
+  { href: "/#mission", label: "Our Mission" },
   { href: "/contact", label: "Contact" },
 ];
 
 const Header = () => {
   const [open, setOpen] = useState(false);
   const router = useRouter();
+  const pathname = usePathname();
+
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    if (!href.startsWith("/#")) return; // let /contact etc. navigate normally
+
+    const hash = href.split("#")[1];
+    const onHomePage = pathname === "/";
+
+    if (onHomePage) {
+      e.preventDefault();
+      document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
+      window.history.pushState(null, "", `#${hash}`);
+      setOpen(false);
+    }
+  };
 
   const handleButtonClick = () => {
     router.push("/appointment-details");
@@ -56,6 +74,7 @@ const Header = () => {
             <Link
               key={link.href}
               href={link.href}
+              onClick={(e) => handleNavClick(e, link.href)}
               className="text-sm font-medium text-[#0A2540]/80 transition-colors hover:text-[#0B4F4C]"
             >
               {link.label}
