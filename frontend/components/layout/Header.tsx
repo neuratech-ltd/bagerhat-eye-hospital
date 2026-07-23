@@ -121,7 +121,10 @@ const Header = () => {
                 <Link
                   key={link.href}
                   href={link.href}
-                  onClick={() => setOpen(false)}
+                  onClick={(e) => {
+                    handleNavClick(e, link.href);
+                    setOpen(false);
+                  }}
                   className="rounded-lg px-3 py-2.5 text-[15px] font-medium text-[#0A2540]/85 transition-colors hover:bg-[#0B4F4C]/5 hover:text-[#0B4F4C]"
                 >
                   {link.label}
