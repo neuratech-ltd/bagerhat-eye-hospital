@@ -88,8 +88,8 @@ export default function DoctorsSection() {
   return (
     <section id="doctors" className="bg-white px-5 py-16 sm:px-6 lg:px-8">
       <div className="services-header fade-in">
-        <div className="section-label"> আমাদের চিকিৎসক দল</div>
-        <h2 className="font-['Hind_Siliguri'] text-5xl font-bold leading-snug text-[#0A2540] sm:text-4xl">
+        <div className="section-label">আমাদের চিকিৎসক দল</div>
+        <h2 className="section-title">
           অভিজ্ঞ বিশেষজ্ঞদের হাতে
           <br className="hidden sm:block" /> আপনার চোখ
         </h2>

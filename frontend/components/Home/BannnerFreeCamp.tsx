@@ -9,8 +9,8 @@ const BannnerFreeCamp = () => {
   const router = useRouter();
 
   return (
-    <div className="camp-banner fade-in">
-      <div className="camp-text">
+    <div className="camp-banner fade-in flex lg:flex-row flex-col items-center justify-between gap-4 flex-wrap">
+      <div className="camp-text flex flex-col items-center justify-center lg:items-start">
         <h6 className="section-label">আমাদের কার্যক্রম</h6>
         <h2 className="section-title">বিনামূল্যে চক্ষু শিবির</h2>
         <p className="mb-2">
