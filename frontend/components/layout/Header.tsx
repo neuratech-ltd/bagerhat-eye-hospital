@@ -14,7 +14,7 @@ import {
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
-const NAV_LINKS = [
+const navItems = [
   { href: "/#services", label: "Services" },
   { href: "/#doctors", label: "Doctors" },
   { href: "/#mission", label: "Our Mission" },
@@ -52,7 +52,7 @@ const Header = () => {
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
-          {NAV_LINKS.map((link) => (
+          {navItems.map((link) => (
             <Link
               key={link.href}
               href={link.href}
@@ -98,7 +98,7 @@ const Header = () => {
             </SheetHeader>
 
             <nav className="mt-6 flex flex-col gap-1">
-              {NAV_LINKS.map((link) => (
+              {navItems.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
