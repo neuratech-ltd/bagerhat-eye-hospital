@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Menu, Phone } from "lucide-react";
 import logo from "../../assets/logo-icon.png";
+import logoMobile from "../../assets/logo1.png";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -50,16 +51,23 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 border-b border-[#0A2540]/5 bg-gradient-to-r from-[#DCE9F9] via-[#E9F1FB] to-[#F3F7FD]">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
-        <Link href="/" className="flex min-w-0 shrink-0 items-center gap-2.5">
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center sm:h-14 sm:w-14">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-1 sm:px-6 lg:px-8">
+        <Link href="/" className="flex min-w-0 shrink-0 items-center gap-2">
+          <div className="flex hidden md:block shrink-0 items-center justify-center h-15 w-20">
             <img
               src={logo.src}
               alt="Bagerhat Eye Hospital Logo"
               className="h-full w-full object-contain"
             />
           </div>
-          <div className="min-w-0 leading-tight">
+          <div className="flex md:hidden shrink-0 items-center justify-center ">
+            <img
+              src={logoMobile.src}
+              alt="Bagerhat Eye Hospital Logo"
+              className="h-20 w-35 object-cover"
+            />
+          </div>
+          <div className="min-w-0 hidden md:block leading-tight">
             <div className="truncate text-[13px] font-bold text-[#0A2540] sm:text-[15px]">
               Bagerhat Eye Hospital
             </div>

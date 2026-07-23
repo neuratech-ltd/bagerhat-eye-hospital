@@ -1,4 +1,4 @@
-import { Stethoscope, UserRound, Info } from "lucide-react";
+import { Stethoscope, UserRound, Info, PhoneCallIcon } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Table,
@@ -41,6 +41,32 @@ export default function AppointmentDetailsSection() {
   return (
     <section className="bg-white px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
       <div className="mx-auto max-w-5xl">
+        <div className="mb-4 font-['Hind_Siliguri'] text-lg font-bold text-[#0A2540]">
+          অ্যাপয়েন্টমেন্ট পদ্ধতি
+        </div>
+        <div className="grid gap-4 sm:grid-cols-1 mb-8">
+          <Card className="rounded-2xl border-[#0A2540]/10 shadow-sm">
+            <CardContent className="flex items-center gap-4 p-6">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#0B4F4C]/10 text-[#0B4F4C]">
+                <PhoneCallIcon className="h-5 w-5" strokeWidth={2} />
+              </div>
+              <div className="min-w-0">
+                <div className="text-sm font-medium text-slate-600">
+                  <div className="flex flex-wrap mb-2 gap-2">
+                    {/* <span className=" border rounded-full bg-[#0B4F4C]/10 p-2 border-[#0B4F4C]/10 text-[#0B4F4C]">
+                      +880 01965-051980
+                    </span> */}
+                    <span className=" border rounded-full bg-[#0B4F4C]/10 p-2 border-[#0B4F4C]/10 text-[#0B4F4C]">
+                      +880 01999-787731
+                    </span>
+                  </div>
+                  নম্বরে ফোন করুন অথবা সরাসরি হাসপাতালে এসে অ্যাপয়েন্টমেন্ট
+                  নিন।
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
         <div className="mb-4 font-['Hind_Siliguri'] text-lg font-bold text-[#0A2540]">
           রোগী দেখার ফি
         </div>
