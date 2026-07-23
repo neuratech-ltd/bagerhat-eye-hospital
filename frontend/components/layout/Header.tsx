@@ -15,9 +15,9 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 const navItems = [
-  { href: "/#services", label: "Services" },
-  { href: "/#doctors", label: "Doctors" },
-  { href: "/#mission", label: "Our Mission" },
+  { href: "#services", label: "Services" },
+  { href: "#doctors", label: "Doctors" },
+  { href: "#mission", label: "Our Mission" },
   { href: "/contact", label: "Contact" },
 ];
 
