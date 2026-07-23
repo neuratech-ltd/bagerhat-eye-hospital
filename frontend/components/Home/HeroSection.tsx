@@ -109,12 +109,11 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* RIGHT — phoropter-dial portrait */}
         <div className="relative mx-auto w-full max-w-[min(420px,92vw)]">
           <div className="relative aspect-square">
             <svg
               viewBox="0 0 200 200"
-              className="absolute inset-0 h-full w-full"
+              className="absolute inset-0 h-full w-full animate-[spin_14s_linear_infinite]"
             >
               <circle
                 cx="100"
